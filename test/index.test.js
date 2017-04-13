@@ -1,7 +1,5 @@
-const Temp = require('../index.js')
+const compile = require('../index.js').compile
 const should = require('should')
-
-const compile = (new Temp()).compile
 
 describe('test/index.test.js', () => {
 	it('compile should return function', () => {

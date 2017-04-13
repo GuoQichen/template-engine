@@ -22,4 +22,4 @@ class Temp {
 
 
 
-module.exports = Temp
+module.exports = new Temp()
