@@ -22,16 +22,13 @@ compile(templateString)({ name: 'guo', todos: ['sleep', 'eat', 'work']})
 then result will be:
 
 ```
-`
-	<h1>hello guo</h1>
-	<h2>today todos:</h2>
-	<ul>
-		<li>sleep</li>
-		<li>eat</li>
-		<li>work</li>
-	</ul>
-
-`
+<h1>hello guo</h1>
+<h2>today todos:</h2>
+<ul>
+	<li>sleep</li>
+	<li>eat</li>
+	<li>work</li>
+</ul>
 ```
 
 ## Test
