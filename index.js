@@ -14,7 +14,7 @@ class Temp {
 			;/^<%=/.test(match[0]) ? addCode(match[1],true) : addCode(match[1])
 			indexBefore = match.index + match[0].length
 		}
-		addStr(str.slice(indexBefore, str.length-indexBefore))
+		addStr(str.substr(indexBefore, str.length-indexBefore))
 		temp += `\nreturn str`
 		// console.log(temp)
 		return (data) => {
