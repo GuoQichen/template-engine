@@ -1,32 +1,32 @@
 const Temp = require('../index.js')
 const should = require('should')
 
-const render = (new Temp()).render
+const compile = (new Temp()).compile
 
 describe('test/index.test.js', () => {
-	it('render should return function', () => {
-		render('hello').should.be.a.Function
+	it('compile should return function', () => {
+		compile('hello').should.be.a.Function
 	})
 
-	it('render shoud resovle <%= variable %> to string', () => {
-		render('hello <%= name %>')({ name: 'guo' }).should.be.type('string')
+	it('compile shoud resovle <%= variable %> to string', () => {
+		compile('hello <%= this.name %>')({ name: 'guo' }).should.be.type('string')
 	})
 
-	it('render should resolve <%= variable %> with argument', () => {
-		render('hello <%= name %>')({ name: 'guo' }).should.equal('helloguo')
+	it('compile should resolve <%= variable %> with argument', () => {
+		compile('hello <%= this.name %>')({ name: 'guo' }).should.equal('helloguo')
 	})
 
-	it('render should resolve <% for loop %> with argument', () => {
-		render(`
+	it('compile should resolve <% for loop %> with argument', () => {
+		compile(`
 			todos is:
-			<% for(let i = 0; i < obj.todos.length; i++) { %>
-			<%= todos[i] %>
+			<% for(let i = 0; i < this.todos.length; i++) { %>
+			<%= this.todos[i] %>
 			<% } %>
 		`)({ todos: ['sleep', 'eat', 'work']}).should.equal('todos is:sleepeatwork')
 	})
 
-	it('render should resolve <% if %> with argument', () => {
-		render(`
+	it('compile should resolve <% if %> with argument', () => {
+		compile(`
 			hello 
 			<% if(true) { %>
 			<%= 'world' %>	
