@@ -6,8 +6,8 @@ class Temp {
 		let temp = `let str = ''`
 		const addCode = (str, isOutput) => isOutput ? temp += `\nstr+=${str}` : temp += `\n${str}`
 		const addStr = str => { 
-			const trimStr = str.trim()
-			if(trimStr !== '') temp += `\nstr+='${str.trim().replace(/\n/g, '')}'`
+			const trimStr = str.replace(/\n/g, '').trim()
+			if(trimStr !== '') temp += `\nstr+='${trimStr}'`
 		}
 		while(match = r.exec(str)) {
 			addStr(str.slice(indexBefore, match.index))
