@@ -4,7 +4,7 @@ simply template-engine
 ## Usage
 ```
 const compile = require(./template-engine).compile
-cosnt templateString = 
+const templateString = 
 `
 	<% if (this.name) {%>
 	<h1>hello <%= this.name %></h1>
